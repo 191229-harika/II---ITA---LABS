@@ -1,0 +1,11 @@
+import java.io.*;
+class Addition {
+     public static void main(String args[]) throws Exception {
+      int a, b, c;
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      System.out.println("Enter the number:");
+      a = Integer.parseInt(br.readLine());
+      System.out.print("a:" + a);
+      System.out.print("\n");
+     }
+    }
