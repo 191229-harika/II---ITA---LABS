@@ -1,3 +1,4 @@
+//b)JavaProgram toreadnumberfrom StandardInput
 import java.io.*;
 class Addition {
      public static void main(String args[]) throws Exception {
