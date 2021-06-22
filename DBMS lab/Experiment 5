@@ -1,1 +1,41 @@
+CREATE TABLE Passenger(PNo int(9) primary key,PName varchar(15),PAge int,PSex char(10),p_seatnum int);
+insert into Passenger values('121','Anu','24','Female','1'),('122','Arun','37','Male','3'),('123','Divya','30','Female','2'),('124','Manoj','21','Male','4');
+update Passenger set PName = 'Vamika' where PNo = '121';
+delete from Passenger where PNo = '122';
+select * from Passenger;
+
+CREATE TABLE Ticket(T_No int primary key,Jrny_Date Date,Age int,Sex varchar(10),Source varchar(10),A_time varchar(6),Destiny Varchar(10),D_time varchar(6));
+insert into Ticket values('01','2021-05-12','30','F','HYD','08:35','VIZ','11:20'),('02','2021-05-12','24','F','VIZ','07:18','VIZ','10:20');
+alter TABLE Ticket add Cost int;
+update Ticket set Cost = '240';
+alter TABLE Ticket drop Sex;
+select * from Ticket;
+
+CREATE TABLE Reservation(PNO int,foreign key(PNO) references passenger(PNo),Journey_date date,seats int,Address varchar(40),contact int,Status char(2));
+insert into Reservation values('121','2021-05-12',2,'pune','23579','R'),('122','2021-05-12',3,'Goa','86190','R'),('123','2021-05-12',4,'patna','20579','NR');
+update  Reservation set Address = 'Vzg' where PNo = '121';
+select * from Reservation; 
+
+CREATE TABLE Cancellation(PNo int,foreign key(PNo) references passenger(PNo),Journey_date date,N_seats int,Adrs varchar(40),contact int,status char(2));
+insert into Cancellation values('121','2021-05-12',2,'pune','23579','R');
+select * from Cancellation;
+
+OUTPUT :
+
+PNo	PName	PAge	PSex	p_seatnum
+121	Vamika	24	Female	1
+123	Divya	30	Female	2
+124	Manoj	21	Male	4
+
+T_No	Jrny_Date 	Age	Source	A_time	Destiny	D_time	Cost
+1	    2021-05-12	30	HYD	    08:35	  VIZ	    11:20	  240
+2	    2021-05-12	24	VIZ	    07:18 	VIZ	    10:20 	240
+
+PNO	Journey_date	seats	Address	contact	Status
+121	2021-05-12	   2	   Vzg	  23579	   R
+122	2021-05-12	   3	   Goa	  86190	   R
+123	2021-05-12	   4	   patna	20579  	NR
+
+PNo	Journey_date	N_seats	Adrs	contact	status
+121	2021-05-12	  2     	pune	 23579  	R
 
