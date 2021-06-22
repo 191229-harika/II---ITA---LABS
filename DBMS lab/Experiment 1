@@ -1,1 +1,36 @@
+// using 6 constrains -> UNIQUE,NOT NULL,Primary key,Default,check,Foreign key//
 
+create database employee;
+USE employee;
+create TABLE Employee(ssn int primary key,emp_name varchar(15),age int default 20);
+insert into Employee values(121,'Deepika',18),(122,'Harika',19),(123,'Preethi',21),(124,'Fathima',20);
+insert into Employee(ssn,emp_name)values(125,'aparna');
+create TABLE Student(roll_num  int UNIQUE,name varchar(20),check(roll_num>0));
+insert into Student values(1,'sravya'),(2,'poojitha'),(3,'kavya');
+select * from Student;
+select * from Employee;
+create TABLE Event(evnt_id int primary key,evnt_name varchar(20),coord_id int NOT NULL);
+insert into Event values('5467','Annual Day','123'),('5469','Engineers Day','121'),('5463','Freshers Day','');
+show tables;
+select * from Event;
+
+OUTPUT :
+
+roll_num	name
+1	        sravya
+2	        poojitha
+3	        kavya
+ssn	 emp_name	 age
+121	 Deepika	 18
+122  Harika	   19
+123	 Preethi	 21
+124	 Fathima	 20
+125	 aparna	   20
+Tables_in_employee
+Employee
+Event
+Student
+evnt_id	 evnt_name	   coord_id
+5467	  Annual Day      123
+5469	  Engineers Day	  121
+5463	  Freshers Day	   0
